@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <HelloWorld />
+    <h2>You are currently viewing {{ envName }} environment</h2>
   </div>
 </template>
 
@@ -11,6 +12,11 @@ export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      envName: config.VUE_APP_ENV_envName,
+    };
   },
 };
 </script>

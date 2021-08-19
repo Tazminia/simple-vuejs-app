@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
     <div style="padding:40px;">
-      <h1>
-        Hello from TazMania
-      </h1>
+      <h1>Hello from TazMania</h1>
     </div>
   </div>
 </template>
