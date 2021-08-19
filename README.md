@@ -1,29 +1,33 @@
 # simple-vuejs-helloworld
 
-## Project setup
+## Purpose
+
+This project is for learning purposes. It was created to understand how vuejs works in a kubernetes environment.
+
+## Description
+
+A simple vuejs application that is capable of reading configuration at runtime from a configmap.
+
+## How to use
+
+### Build docker image in minikube context
 
 ```console
-npm install
+eval $(minikube docker-env)
+docker build --rm -t vuejs-app:0.0.2 .
 ```
 
-### Compiles and hot-reloads for development
+### Test image in minikube
 
 ```console
-npm run serve
+eval $(minikube docker-env)
+kubectl apply -f minikube.yaml
+kubectl port-forward svc/vuejs 8080:80
 ```
 
-### Compiles and minifies for production
+### Change config
 
 ```console
-npm run build
+kubectl edit cm fe-config
+# Now change the value of VUE_APP_ENV_envName "minikube-dev" to whatever value you want
 ```
-
-### Lints and fixes files
-
-```console
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
